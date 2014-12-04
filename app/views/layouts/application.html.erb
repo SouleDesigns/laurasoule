@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<%= render "/refinery/html_tag" %>
+<head>
+  <%= render "/refinery/head" %>
+  <!-- FONTS -->
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+</head>
+<body id="<%= canonical_id @page %>">
+<!-- PRELOADER -->
+<div id="preloader"><img src="<%= image_path("preloader.gif") %>" alt="" /></div>
+<!-- //PRELOADER -->
+
+<!-- PAGE -->
+<div id="page" class="front_page">
+
+<!-- PRELOADER HIDE -->
+<div class="preloader_hide">
+
+<!-- PAGE BLOCK -->
+<div class="page_block">
+
+<!-- HEADER -->
+<header>
+
+  <!-- MENU -->
+  <div class="menu_block clearfix">
+
+    <!-- CONTAINER -->
+    <div class="container">
+
+
+      <!-- LOGO -->
+      <div class="logo">
+        <a href="index.html" ><img src="<%= image_path("logo.svg") %>" alt=""  onerror="this.onerror=null; this.src='<%= image_path("logo.png") %>'" /></a>
+      </div><!-- LOGO -->
+
+      <!-- RESPONSIVE BUTTON MENU -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+          <em></em><em></em><em></em><em></em>
+        </button>
+      </div><!-- //RESPONSIVE BUTTON MENU -->
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <%= Refinery::Pages::MenuPresenter.new(refinery_menu_pages, self).to_html %>
+      </div>
+
+    </div><!-- //CONTAINER -->
+  </div><!-- //MENU -->
+</header><!-- //HEADER -->
+
+
+<!-- HOME -->
+<section>
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <%= yield %>
+
+  </div><!-- //CONTAINER -->
+
+</section><!-- //HOME -->
+
+
+<!-- FOOTER -->
+<footer>
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <!-- ROW -->
+    <div class="row" data-animated="fadeInUp">
+
+      <!-- GET IN TOUCH -->
+      <div class="col-lg-4 col-md-4 col-sm-6 padbot30 get_in_touch_block">
+        <h3>Get in touch</h3>
+        <p>Duis fringilla nibh at aliquam dignissim. Nulla erat nulla, dignissim et volutpat sit amet, placerat placerat tortor. Integer felis orci, ornare non congue ut, iaculis non diam. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Mauris molestie in elit id iaculis. Nulla tristique mauris sem, id</p>
+        <span>1 Iron Bridge House 1Bridge Approach London NW1</span>
+        <span><b>email :</b> <a href="mailto:useful@sitename.com">useful@sitename.com</a></span>
+        <span><b>phone :</b> <a href="tel:+1 959 603 6035">+1 959 603 6035</a></span>
+      </div><!-- //GET IN TOUCH -->
+
+      <!-- LATEST EVENTS -->
+      <div class="col-lg-5 col-md-5 col-sm-6 padbot30">
+        <h3>Events</h3>
+        <ul class="recent_events">
+          <li class="clearfix">
+            <div class="recent_event_img">
+              <img src="<%= image_path("blog/1.jpg")%>" alt="" />
+            </div>
+            <div class="recent_event_content">
+              <a class="event_title" href="blog-post.html">Sed a condimentum eros.</a>
+              <div class="event_date">20/08/13</div>
+              <div class="recent_post_excerpt">Duis fringilla nibh at aliqsumam dignissim. Nulla erat nulla, dignissim et volutpat</div>
+            </div>
+          </li>
+          <li class="clearfix">
+            <div class="recent_event_img">
+              <img src="<%= image_path("blog/2.jpg")%>" alt="" />
+            </div>
+            <div class="recent_event_content">
+              <a class="event_title" href="blog-post.html">Sed a condimentum eros.</a>
+              <div class="event_date">20/08/13</div>
+              <div class="recent_post_excerpt">Duis fringilla nibh at aliquam dignissim. Nulla erat nulla, dignissim</div>
+            </div>
+          </li>
+        </ul>
+      </div><!-- //LATEST EVENTS -->
+
+      <div class="respon_clear"></div>
+
+      <!-- GOOGLE+ -->
+      <div class="col-lg-3 col-md-3 padbot20">
+        <h3>Google+ Photos</h3>
+        <div class="flickrs">
+          <div class="FlickrImages type7 clearfix">
+            <ul></ul>
+          </div>
+        </div>
+      </div><!-- GOOGLE+ -->
+
+    </div><!-- //ROW -->
+  </div><!-- //CONTAINER -->
+
+
+  <!-- COPYRIGHT -->
+  <div class="copyright clearfix">
+
+    <!-- CONTAINER -->
+    <div class="container">
+      <div class="pull-left padbot20">
+        <a class="copyright_logo" href="javascript:void(0);">Flight</a> <span> &copy; Copyright 2020</span>
+      </div>
+
+      <!-- FOOTER SOCIAL -->
+      <div class="pull-right social">
+        <a href="javascript:void(0);" ><i class="fe social_googleplus"></i></a>
+        <a href="javascript:void(0);" ><i class="fe social_linkedin"></i></a>
+        <a href="javascript:void(0);" ><i class="fe social_facebook"></i></a>
+        <a href="javascript:void(0);" ><i class="fe social_twitter"></i></a>
+        <a href="javascript:void(0);" ><i class="fe social_vimeo"></i></a>
+        <a href="javascript:void(0);" ><i class="fe social_flickr"></i></a>
+      </div><!-- //FOOTER SOCIALS -->
+    </div><!-- //CONTAINER -->
+  </div><!-- //COPYRIGHT -->
+</footer><!-- //FOOTER -->
+</div><!-- //PAGE BLOCK -->
+</div><!-- //PRELOADER HIDE -->
+</div><!-- //PAGE -->
+
+<%= render "/refinery/javascripts" %>
+</body>
+</html>

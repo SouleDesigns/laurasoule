@@ -1,0 +1,23 @@
+<!-- BREADCRUMBS -->
+<section class="breadcrumbs_block clearfix">
+
+  <!-- CONTAINER -->
+  <div class="container">
+    <div class="breadcrumbs_content clearfix">
+      <h2 class="pull-left"><%= @page.title %></h2>
+      <ol class="pull-right breadcrumb">
+        <li><%= link_to "Home", refinery.root_url(:only_path => true) %></li>
+        <% [@page.ancestors, @page].flatten.collect do |p| %>
+            <li><%= link_to p.title, p.url %></li>
+        <% end %>
+        <%# Note: Last crumb optional manual entry as last breadcrumb %>
+        <%#       could extend this to something more elegant in the future ;-) %>
+        <% unless last_crumb.nil? %>
+            <li><%= link_to last_crumb, '#' %></li>
+        <% end %>
+      </ol>
+    </div>
+  </div><!-- //CONTAINER -->
+  <div class="overlay"></div>
+  <div class="overlay_black"></div>
+</section><!-- //BREADCRUMBS -->

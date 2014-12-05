@@ -1,0 +1,40 @@
+<%= render('refinery/pages/breadcrumbs') %>
+<% content_for :body do %>
+  <%= raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) if Refinery::Pages.default_parts.any? %>
+
+  <% if @posts.any? %>
+    <section id="blog_posts">
+      <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+      <%= will_paginate @posts %>
+    </section>
+  <% else %>
+    <p><%= t('.no_blog_articles_yet') %></p>
+  <% end %>
+<% end %>
+
+<% content_for :side_body_prepend do -%>
+  <%= raw @page.content_for(Refinery::Pages.default_parts.second.to_sym) %>
+<% end if Refinery::Pages.default_parts.many? -%>
+<%= render '/refinery/blog/shared/body_content_right' %>
+
+<%= render "/refinery/content_page" %>
+
+<!-- PAGE CONTENT -->
+<section class="our_vision">
+
+  <!-- CONTAINER -->
+  <div class="container">
+    <div class="row">
+      <!-- BODY -->
+      <div class="col-lg-9 col-sm-9 padbot20">
+        <%=raw @page.content_for(:body) %>
+      </div><!-- //BODY-->
+
+      <!-- SIDE BODY -->
+      <div id="sidebar" class="col-lg-3 col-sm-3">
+        <%=raw @page.content_for(:side_body) %>
+      </div><!-- //SIDE BODY -->
+    </div>
+  </div><!-- //CONTAINER -->
+</section><!-- //PAGE CONTENT -->
+<% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>

@@ -495,7 +495,7 @@ ul.mega_menu li ol li a:hover {
 	position:relative;
 	height:791px;
 	padding:0;
-	background-image:url(../images/home_bg.jpg);
+	background-image:image_url('home_bg.jpg');
 	background-repeat:no-repeat;
 	background-size:cover;
 }
@@ -588,7 +588,7 @@ ul.mega_menu li ol li a:hover {
 /*-----------------------------------------------------------------------------------*/
 .projects_block {
 	padding:65px 0 40px;
-	background-image:url(../images/projects_bg.jpg);
+	background-image:image_url('projects_bg.jpg');
 }
 
 
@@ -738,7 +738,7 @@ ul.mega_menu li ol li a:hover {
 	top:3px;
 	width:12px;
 	height:12px;
-	background-image:url(../images/info_block_list.png);
+	background-image:image_url('info_block_list.png');
 	background-repeat:no-repeat;
 	background-size:100% 100%;
 	-webkit-background-size:100% 100%;
@@ -959,7 +959,7 @@ footer .recent_posts li .date_block {color:#656464;}
 	border:0;
 	border-radius:0;
 	background-color:#7f3b49;
-	background-image:url(../images/plane.png);
+	background-image:image_url('plane.png');
 	background-size:100% auto;
 	-webkit-background-size:100% auto;
 	background-repeat:no-repeat;
@@ -1114,9 +1114,9 @@ input[type="reset"] {
 	background-position:0 0;
 	background-repeat:no-repeat;
 }
-.notification_error:before {background-image:url(../images/error.png);
+.notification_error:before {background-image:image_url('error.png');
 }
-.notification_ok:before {background-image:url(../images/info.png);
+.notification_ok:before {background-image:image_url('info.png');
 }
 
 
@@ -1242,7 +1242,7 @@ footer input[type="submit"]:hover {color:#9a9a9a; background-color:#3d3d3d;}
 	margin-bottom:40px;
 	padding-top:110px;
 	padding-bottom:0;
-	background-image:url(../images/home_bg.jpg);
+	background-image:image_url('home_bg.jpg');
 	background-repeat:no-repeat;
 	background-size:100% auto;
 	-webkit-background-size:100% auto;

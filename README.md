@@ -1,4 +1,3 @@
-![Laura Soule](https://raw.githubusercontent.com/SouleDesigns/laurasoule/master/app/assets/images/logo.svg)
 
 # Laura Soule Professional Website
 

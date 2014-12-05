@@ -12,7 +12,7 @@
         <% end %>
         <%# Note: Last crumb optional manual entry as last breadcrumb %>
         <%#       could extend this to something more elegant in the future ;-) %>
-        <% unless last_crumb.nil? %>
+        <% unless (defined?(last_crumb)).nil? %>
             <li><%= link_to last_crumb, '#' %></li>
         <% end %>
       </ol>

@@ -31,7 +31,7 @@
 
       <!-- LOGO -->
       <div class="logo">
-        <a href="index.html" ><img src="<%= image_path("logo.svg") %>" alt=""  onerror="this.onerror=null; this.src='<%= image_path("logo.png") %>'" /></a>
+        <a href="<%=refinery.root_path%>" ><img src="<%= image_path("logo.svg") %>" alt=""  onerror="this.onerror=null; this.src='<%= image_path("logo.png") %>'" /></a>
       </div><!-- LOGO -->
 
       <!-- RESPONSIVE BUTTON MENU -->
@@ -118,7 +118,7 @@
     <!-- CONTAINER -->
     <div class="container">
       <div class="pull-left padbot20">
-        <a class="copyright_logo" href="javascript:void(0);">Flight</a> <span> &copy; Copyright 2020</span>
+        <a class="copyright_logo" href="<%=refinery.root_path%>">Laura Soule</a> <span> &copy; Copyright 2012-<%= Date.today.year %></span>
       </div>
 
       <!-- FOOTER SOCIAL -->

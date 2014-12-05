@@ -9,6 +9,10 @@ group :development, :test do
   gem 'sqlite3'
 end
 
+group :production do
+  gem 'pg',             '0.17.1'
+  gem 'rails_12factor', '0.0.2'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -38,6 +42,7 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+
 gem 'haml'
 gem 'acts-as-taggable-on', '~> 3.4'
 

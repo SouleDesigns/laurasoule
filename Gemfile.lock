@@ -1,5 +1,6 @@
-PATH
-  remote: /Volumes/Free Range HD/SouleDesigns/GithubProjects/refinerycms-wordpress-import
+GIT
+  remote: git://github.com/SouleDesigns/refinerycms-wordpress-import.git
+  revision: a861be844953b2f1d1e765b58b5b5754f4045d5f
   specs:
     refinerycms-wordpress-import (2.1.0)
       acts-as-taggable-on

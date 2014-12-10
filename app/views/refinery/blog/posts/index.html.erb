@@ -1,23 +1,4 @@
 <%= render('refinery/pages/breadcrumbs') %>
-<% content_for :body do %>
-  <%= raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) if Refinery::Pages.default_parts.any? %>
-
-  <% if @posts.any? %>
-    <section id="blog_posts">
-      <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
-      <%= will_paginate @posts %>
-    </section>
-  <% else %>
-    <p><%= t('.no_blog_articles_yet') %></p>
-  <% end %>
-<% end %>
-
-<% content_for :side_body_prepend do -%>
-  <%= raw @page.content_for(Refinery::Pages.default_parts.second.to_sym) %>
-<% end if Refinery::Pages.default_parts.many? -%>
-<%= render '/refinery/blog/shared/body_content_right' %>
-
-<%= render "/refinery/content_page" %>
 
 <!-- PAGE CONTENT -->
 <section class="our_vision">
@@ -27,12 +8,39 @@
     <div class="row">
       <!-- BODY -->
       <div class="col-lg-9 col-sm-9 padbot20">
-        <%=raw @page.content_for(:body) %>
+        <%= raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) if Refinery::Pages.default_parts.any? %>
+        <% if @posts.any? %>
+
+            <section id="blog_posts">
+              <% @posts.each do |post| %>
+                  <div style="padding-bottom: 40px;">
+                    <h2><%=post.title%></h2>
+                <% page = Nokogiri::HTML(post.body)
+                   img = page.css('img').first
+                    unless img.nil?%>
+                        <div style="height: 300px; overflow: hidden">
+                    <%= raw img%>
+                        </div>
+                    <%end%>
+                    <p><%=truncate(page.text, length: Refinery::Blog.post_teaser_length, separator: ' ')%></p>
+                  </div>
+              <% end %>
+
+              <%# render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+              <%= will_paginate @posts  %>
+            </section>
+        <% else %>
+            <p><%= t('.no_blog_articles_yet') %></p>
+        <% end %>
       </div><!-- //BODY-->
 
       <!-- SIDE BODY -->
       <div id="sidebar" class="col-lg-3 col-sm-3">
-        <%=raw @page.content_for(:side_body) %>
+        <% content_for :side_body_prepend do -%>
+            <%= raw @page.content_for(Refinery::Pages.default_parts.second.to_sym) %>
+        <% end if Refinery::Pages.default_parts.many? -%>
+        <%= render '/refinery/blog/shared/body_content_right' %>
+        <%= render "/refinery/content_page", :remove_automatic_sections => true %>
       </div><!-- //SIDE BODY -->
     </div>
   </div><!-- //CONTAINER -->

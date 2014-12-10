@@ -1,5 +1,6 @@
 <% if @categories.any? %>
-  <h2><%= t('.title') %></h2>
+<div class="sidepanel widget_categories">
+  <h4 class="sidebar_header"><%= t('.title') %></h4>
   <ul id='categories'>
     <% @categories.each do |category| %>
       <li<%= " class='selected'" if @category.present? and @category.id == category.id %>>
@@ -7,4 +8,5 @@
       </li>
     <% end %>
   </ul>
+</div>
 <% end %>

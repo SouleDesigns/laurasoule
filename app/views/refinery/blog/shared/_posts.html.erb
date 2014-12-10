@@ -1,10 +1,29 @@
 <% if @posts.many? %>
-  <h2><%= t('.other') %></h2>
-  <ul id="blog_posts">
-    <% @posts.each do |blog_post| %>
-      <li class='clearfix'>
-        <%= link_to blog_post.title, refinery.blog_post_path(blog_post) %>
-      </li>
+<div class="sidepanel widget_posts">
+  <h4 class="sidebar_header"><%= t('.other') %></h4>
+  <ul class="recent_posts">
+    <% @posts.each do |blog_post|
+
+        page = Nokogiri::HTML(blog_post.body)
+    %>
+    <li>
+      <div class="pull-left recent_posts_img">
+        <%
+          img = page.css('img').first
+          unless img.nil?
+            sha = img.attr('src').match(%r{/system/images/(.+?)/})[1]
+            job = Dragonfly::Job.deserialize sha, Dragonfly[:refinery_images]
+        %>
+            <%= link_to (image_fu Refinery::Image.where(:image_uid => job.uid).first, '70x70#c'), refinery.blog_post_path(blog_post), :title => blog_post.title %>
+        <% end %>
+      </div>
+      <div class="recent_posts_content">
+        <%= link_to blog_post.title, refinery.blog_post_path(blog_post) %><br />
+        <%=truncate(page.text, length: 50, separator: ' ')%>
+      </div>
+      <div class="clear"></div>
+    </li>
     <% end %>
   </ul>
+</div><!-- .sidepanel -->
 <% end %>

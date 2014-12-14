@@ -39,4 +39,4 @@ gem 'refinerycms-wordpress-import', path: '/Volumes/Free Range HD/SouleDesigns/G
 #  gem 'refinerycms-inquiries', '~> 2.1.0'
 #  gem 'refinerycms-search', '~> 2.1.0'
 #  gem 'refinerycms-page-images', '~> 2.1.0'
-gem 'refinerycms-s3assets', :group => :development
+#gem 'refinerycms-s3assets', :group => :development

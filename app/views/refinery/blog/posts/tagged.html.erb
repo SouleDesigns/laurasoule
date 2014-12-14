@@ -1,20 +1,36 @@
-<%= render('refinery/pages/breadcrumbs') %>
-<% content_for :title, "#{t('.posts_tagged')} “#{h(@tag_name.titleize)}”".html_safe  %>
+<%= render( :partial => 'refinery/pages/breadcrumbs', :locals => { :last_crumb => @tag_name }) %>
+<!--PAGE CONTENT -->
+<section class="our_vision">
 
-<% content_for :body_content_title, "#{t('.posts_tagged')} &#8220;#{h(@tag_name.titleize)}&#8221;".html_safe -%>
+  <!-- CONTAINER -->
+  <div class="container">
+    <div class="row">
+      <!-- BODY -->
+      <div class="col-lg-9 col-sm-9 padbot20">
+        <h1><%="#{t('.posts_tagged')} “#{h(@tag_name)}”".html_safe%></h1>
 
-<% content_for :body do %>
-  <% if @posts.any? %>
-    <section id="blog_posts">
-      <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
-      <%= will_paginate @posts %>
-    </section>
-  <% else %>
-    <p><%= t('.no_blog_articles_yet') %></p>
-  <% end %>
-<% end %>
+        <%= raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) if Refinery::Pages.default_parts.any? %>
+        <% if @posts.any? %>
+            <section id="blog_posts">
+              <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+              <%= will_paginate @posts  %>
+            </section>
+        <% else %>
+            <p><%= t('.no_blog_articles_yet') %></p>
+        <% end %>
+      </div><!-- //BODY-->
 
-<%= render '/refinery/blog/shared/body_content_right' %>
-
-<%= render "/refinery/content_page" %>
+      <!-- SIDE BODY -->
+      <div id="sidebar" class="col-lg-3 col-sm-3">
+        <div class="well">
+          <% content_for :side_body_prepend do -%>
+              <%= raw @page.content_for(Refinery::Pages.default_parts.second.to_sym) %>
+          <% end if Refinery::Pages.default_parts.many? -%>
+          <%= render '/refinery/blog/shared/body_content_right' %>
+          <%= render "/refinery/content_page", :remove_automatic_sections => true %>
+        </div>
+      </div><!-- //SIDE BODY -->
+    </div>
+  </div><!-- //CONTAINER -->
+</section><!-- //PAGE CONTENT -->
 <% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>

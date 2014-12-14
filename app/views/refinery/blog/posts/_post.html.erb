@@ -4,32 +4,7 @@
  </div>
 <% end %>
 <div id="blog_post">
-  <div class="post-header">
-    <h1><%= @post.title %></h1>
-    <div class="post_meta">
-      <div class="pull-left">
-        <span class="glyphicon glyphicon-calendar"></span>
-        <%=@post.published_at.to_date.strftime('%-m/%-d/%Y')%>
-      </div>
-      <div class="pull-left">
-        <span class="glyphicon glyphicon-user"></span>
-        <%=@post.author.username.titleize%>
-      </div>
-      <div class="pull-left">
-        <i class="glyphicon glyphicon-comment"></i>
-        0 comments
-      </div>
-      <% if (categories = @post.categories).any? %>
-      <div class="pull-left">
-        <span class="glyphicon glyphicon-tags" aria-hidden="true"></span>
-        <% categories.each_with_index do |category, index| %>
-            <%= link_to category.title, refinery.blog_category_path(category) -%><%= ',' if index < ((categories.length) - 1) %>
-        <% end %>
-      </div>
-      <% end %>
-      <div class="clearfix"></div>
-    </div>
-  </div>
+  <%= render :partial => '/refinery/blog/shared/post_header', :locals => { :post => @post} %>
   <%= @post.body.html_safe %>
 
   <% if Refinery::Blog::Post::ShareThis.enabled? %>

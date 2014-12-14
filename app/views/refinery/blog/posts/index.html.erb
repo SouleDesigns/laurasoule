@@ -10,32 +10,8 @@
       <div class="col-lg-9 col-sm-9 padbot20">
         <%= raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) if Refinery::Pages.default_parts.any? %>
         <% if @posts.any? %>
-
             <section id="blog_posts">
-              <% @posts.each do |post| %>
-                  <div class="post" style="padding-bottom: 40px;">
-                    <h2><%= link_to post.title, refinery.blog_post_path(post) %></h2>
-                    <div class="post_meta">
-                        Posted by <a href="javascript:void(0);">John White</a>
-                        <span class="sep">|</span>
-                        25 apr 2019
-                        <span class="sep">|</span>
-                        <a href="javascript:void(0);">3 comments</a>
-                        <span class="sep">|</span>
-                        Tags: <a href="javascript:void(0);">lorem,</a><a href="javascript:void(0);">ipsum,</a> <a href="javascript:void(0);">dolor,</a> <a href="javascript:void(0);">amet</a>
-                    </div>
-                <% page = Nokogiri::HTML(post.body)
-                   img = page.css('img').first
-                    unless img.nil?%>
-                    <div class="post_img" style="height: 300px; overflow: hidden">
-                    <%= raw img%>
-                    </div>
-                    <%end%>
-                    <p><%=truncate(page.text, length: Refinery::Blog.post_teaser_length, separator: ' ')%></p>
-                  </div>
-              <% end %>
-
-              <%# render :partial => "/refinery/blog/shared/post", :collection => @posts %>
+              <%= render :partial => "/refinery/blog/shared/post", :collection => @posts %>
               <%= will_paginate @posts  %>
             </section>
         <% else %>

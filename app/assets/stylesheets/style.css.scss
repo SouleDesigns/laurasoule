@@ -69,12 +69,12 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight:400;
 	color:#333;
 }
-h1 {margin:0 0 30px; line-height:34px; font-size:30px;}
+/*h1 {margin:0 0 30px; line-height:34px; font-size:30px;}
 h2 {margin:0 0 27px; line-height:30px; font-size:27px;}
 h3 {margin:0 0 20px; line-height:23px; font-size:24px;}
 h4 {margin:0 0 15px; line-height:20px; font-size:20px;}
 h5 {line-height:20px; font-size:17px;}
-h6 {line-height:20px; font-size:14px;}
+h6 {line-height:20px; font-size:14px;}*/
 
 h1 .glyphicon { font-size: 20px; }
 
@@ -498,7 +498,8 @@ ul.mega_menu li ol li a:hover {
 	background-repeat:no-repeat;
 	background-size:cover;
 }
-#home .container {position:relative;}
+#home .container {position:relative;
+  z-index: 2;}
 
 .parallax-viewport {
     overflow:hidden;
@@ -515,12 +516,25 @@ ul.mega_menu li ol li a:hover {
 .parallax-layer {position: absolute;}
 .parallax-layer img {position:absolute;}
 
+#home-welcome {
+  position: relative;
+  margin-top: 140px;
+  text-align: center;
 
+  h1, h3 {
+    color: #fff;
+  }
+}
 
-
-
-
-
+#home img {
+  height: 60%;
+  position: absolute;
+  bottom: 0px;
+  margin: auto;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
 
 /*-----------------------------------------------------------------------------------*/
 /*	SERVICES

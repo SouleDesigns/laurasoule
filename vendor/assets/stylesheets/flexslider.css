@@ -99,7 +99,7 @@ html[xmlns] .slides {display: block;}
 
 /* __________ Top Slider __________ */
 .flexslider.top_slider {
-	margin-top:160px;
+	margin-top:110px;
 	text-align:center;
 }
 .flexslider.top_slider .slides img {

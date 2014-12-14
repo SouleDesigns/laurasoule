@@ -1,20 +1,40 @@
 <%= render( :partial => 'refinery/pages/breadcrumbs', :locals => { :last_crumb => @post.title }) %>
-<% content_for :body do %>
-  <div id="show_blog_post">
-    <%= render 'post' %>
-  </div>
 
-  <%= render 'comments' %>
-<% end %>
+<!-- PAGE CONTENT -->
+<section class="our_vision">
 
-<%= render '/refinery/blog/shared/body_content_right' %>
+  <!-- CONTAINER -->
+  <div class="container">
+    <div class="row">
+      <!-- BODY -->
+      <div class="col-lg-9 col-sm-9 padbot20">
+            <div id="show_blog_post">
+              <%= render 'post' %>
+            </div>
 
-<%= render "/refinery/content_page", :remove_automatic_sections => true %>
+            <%= render 'comments' %>
+      </div><!-- //BODY-->
+
+      <!-- SIDE BODY -->
+      <div id="sidebar" class="col-lg-3 col-sm-3">
+        <div class="well">
+          <%= render '/refinery/blog/shared/body_content_right' %>
+          <%= render "/refinery/content_page", :remove_automatic_sections => true %>
+        </div>
+      </div><!-- //SIDE BODY -->
+    </div>
+  </div><!-- //CONTAINER -->
+</section><!-- //PAGE CONTENT -->
 
 <% content_for :stylesheets, stylesheet_link_tag('refinery/blog/frontend') %>
 <% content_for :javascripts do %>
-  <%# enable AJAX'd post nav at your own risk until html5 history API implemented. %>
-  <%#= javascript_include_tag('refinery/blog/frontend') %>
-  <script src="http://w.sharethis.com/button/buttons.js"></script>
-  <script>stLight.options({publisher:'<%= Refinery::Blog.share_this_key %>'});</script>
+    <%# enable AJAX'd post nav at your own risk until html5 history API implemented. %>
+    <%#= javascript_include_tag('refinery/blog/frontend') %>
+    <script src="http://w.sharethis.com/button/buttons.js"></script>
+    <script>stLight.options({publisher:'<%= Refinery::Blog.share_this_key %>'});</script>
 <% end if Refinery::Blog::Post::ShareThis.enabled? %>
+
+
+
+
+

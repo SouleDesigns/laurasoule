@@ -6,6 +6,7 @@ gem 'rails', '3.2.21'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'pg', '0.17.1'
+gem 'fog'
 
 group :production do
   gem 'rails_12factor', '0.0.2'
@@ -24,22 +25,6 @@ group :assets do
 end
 
 gem 'jquery-rails'
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-gem 'pry-byebug'
-
 gem 'haml'
 gem 'acts-as-taggable-on', '~> 3.4'
 
@@ -49,8 +34,9 @@ gem 'refinerycms', '~> 2.1.0'
 # Optionally, specify additional Refinery CMS Extensions here:
 gem 'refinerycms-acts-as-indexed', '~> 1.0.0'
 gem 'refinerycms-blog', '~> 2.1.0'
-gem 'refinerycms-wordpress-import', path: '/Volumes/FreeRangeHD/SouleDesigns/GithubProjects/refinerycms-wordpress-import'
+gem 'refinerycms-wordpress-import', path: '/Volumes/Free Range HD/SouleDesigns/GithubProjects/refinerycms-wordpress-import'
 #gem 'refinerycms-wordpress-import', :git => 'git://github.com/SouleDesigns/refinerycms-wordpress-import.git'
 #  gem 'refinerycms-inquiries', '~> 2.1.0'
 #  gem 'refinerycms-search', '~> 2.1.0'
 #  gem 'refinerycms-page-images', '~> 2.1.0'
+gem 'refinerycms-s3assets', :group => :development

@@ -8,7 +8,7 @@ body {
 	padding:0;
 	font-family: 'Noto Sans', sans-serif;
 	font-weight:400;
-	font-size: 13px;
+	font-size: 16px;
 	line-height: 20px;
 	color: #555;
 }
@@ -46,7 +46,7 @@ a {
 	-webkit-transition: all 0.3s ease-in-out;
 }
 a:hover, a:focus {
-	text-decoration:none;
+	text-decoration:underline;
 	color:#ab747f;
 }
 ul {
@@ -83,6 +83,7 @@ h6 {line-height:20px; font-size:14px;}
 .color_light {color:#979797;}
 .color_white {color:#fff;}
 
+.glyphicon { color: #333; }
 
 .margbot0 {margin-bottom:0;}
 .margbot5 {margin-bottom:5px !important;}
@@ -184,7 +185,6 @@ section {padding-bottom: 70px;}
 	padding-left:30px;
 	padding-right:30px;
 }
-
 
 
 
@@ -914,13 +914,13 @@ footer .recent_posts li .date_block {color:#656464;}
 	margin:-5px 0 2px;
 	line-height:20px;
 	font-size:14px;
-	color:#ab747f;
+	color:#e2e1e1;
 }
 .event_title:hover {color:#7f3b49;}
 .event_date {
 	font-size:12px;
     line-height: 12px;
-	color:#e2e1e1;
+	color:#ab747f;
 }
 
 
@@ -1244,6 +1244,7 @@ footer input[type="submit"]:hover {color:#9a9a9a; background-color:#3d3d3d;}
 	background-repeat:no-repeat;
 	background-size:100% auto;
 	-webkit-background-size:100% auto;
+  font-size: 13px;
 }
 .breadcrumbs_block .overlay, .breadcrumbs_block .overlay_black {display:none;}
 .breadcrumbs_content {
@@ -1263,7 +1264,8 @@ footer input[type="submit"]:hover {color:#9a9a9a; background-color:#3d3d3d;}
 }
 .breadcrumb > li + li:before {color:#fff;}
 .breadcrumb li a {font-weight:700; color:#fff;}
-.breadcrumb li:last-child a {font-weight:400; cursor:default;}
+.breadcrumb li:last-child a {font-weight:400; cursor:default;
+  text-decoration: none;}
 
 
 
@@ -1811,11 +1813,31 @@ h2 .fe {
 	font-size:23px;
 }
 .post p {margin-bottom:7px;}
-.post_meta {	padding-bottom:13px;}
+.post_meta {
+  padding-bottom:13px;
+  div {
+    padding-right: 25px;
+
+    span {
+      padding-right: 5px;
+    }
+  }
+}
 span.sep {padding:0 8px;}
 .post_img {margin-bottom:12px;}
 .post_img iframe {height:465px;}
 
+.size-medium {
+  max-width: 250px;
+  max-height: 250px;
+}
+figure {
+  max-width: 250px;
+  display: inline-block;
+}
+figcaption {
+  display: block;
+}
 /* __________ Comments __________ */
 #comments ol {
 	padding:0;

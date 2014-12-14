@@ -38,7 +38,7 @@ gem 'jquery-rails'
 # gem 'capistrano'
 
 # To use debugger
-# gem 'debugger'
+gem 'pry-byebug'
 
 gem 'haml'
 gem 'acts-as-taggable-on', '~> 3.4'
@@ -49,7 +49,8 @@ gem 'refinerycms', '~> 2.1.0'
 # Optionally, specify additional Refinery CMS Extensions here:
 gem 'refinerycms-acts-as-indexed', '~> 1.0.0'
 gem 'refinerycms-blog', '~> 2.1.0'
-gem 'refinerycms-wordpress-import', :git => 'git://github.com/SouleDesigns/refinerycms-wordpress-import.git'
+gem 'refinerycms-wordpress-import', path: '/Volumes/FreeRangeHD/SouleDesigns/GithubProjects/refinerycms-wordpress-import'
+#gem 'refinerycms-wordpress-import', :git => 'git://github.com/SouleDesigns/refinerycms-wordpress-import.git'
 #  gem 'refinerycms-inquiries', '~> 2.1.0'
 #  gem 'refinerycms-search', '~> 2.1.0'
 #  gem 'refinerycms-page-images', '~> 2.1.0'

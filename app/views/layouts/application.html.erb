@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <%= render "/refinery/html_tag" %>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="<%=image_path('favicon.ico')%>">
   <%= render "/refinery/head" %>
   <!-- FONTS -->
-  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,400italic,700,700italic|Montserrat:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body id="<%= canonical_id @page %>">
 <!-- PRELOADER -->
@@ -69,38 +71,11 @@
         <span><b>phone :</b> <a href="tel:+1 959 603 6035">+1 959 603 6035</a></span>
       </div><!-- //GET IN TOUCH -->
 
-      <!-- LATEST EVENTS -->
-      <div class="col-lg-5 col-md-5 col-sm-6 padbot30">
-        <h3>Events</h3>
-        <ul class="recent_events">
-          <li class="clearfix">
-            <div class="recent_event_img">
-              <img src="<%= image_path("blog/1.jpg")%>" alt="" />
-            </div>
-            <div class="recent_event_content">
-              <a class="event_title" href="blog-post.html">Sed a condimentum eros.</a>
-              <div class="event_date">20/08/13</div>
-              <div class="recent_post_excerpt">Duis fringilla nibh at aliqsumam dignissim. Nulla erat nulla, dignissim et volutpat</div>
-            </div>
-          </li>
-          <li class="clearfix">
-            <div class="recent_event_img">
-              <img src="<%= image_path("blog/2.jpg")%>" alt="" />
-            </div>
-            <div class="recent_event_content">
-              <a class="event_title" href="blog-post.html">Sed a condimentum eros.</a>
-              <div class="event_date">20/08/13</div>
-              <div class="recent_post_excerpt">Duis fringilla nibh at aliquam dignissim. Nulla erat nulla, dignissim</div>
-            </div>
-          </li>
-        </ul>
-      </div><!-- //LATEST EVENTS -->
-
-      <div class="respon_clear"></div>
+      <%= render :partial => "/refinery/blog/widgets/posts_footer", :locals => { :posts => @recent_blog_posts } %>
 
       <!-- GOOGLE+ -->
       <div class="col-lg-3 col-md-3 padbot20">
-        <h3>Google+ Photos</h3>
+        <h3>Recent Photos</h3>
         <div class="flickrs">
           <div class="FlickrImages type7 clearfix">
             <ul></ul>
@@ -110,7 +85,6 @@
 
     </div><!-- //ROW -->
   </div><!-- //CONTAINER -->
-
 
   <!-- COPYRIGHT -->
   <div class="copyright clearfix">

@@ -280,7 +280,7 @@ jQuery(document).ready(function() {
 /*	GOOGLE+
 /*-----------------------------------------------------------------------------------*/
 jQuery(document).ready(function() {
-	$.getJSON("http://picasaweb.google.com/data/feed/api/user/lauraksoule?kind=photo&max-results=9&alt=json", function(data){
+	$.getJSON("http://picasaweb.google.com/data/feed/api/user/lauraksoule?kind=photo&max-results=12&alt=json", function(data){
 		$.each(data.feed.entry, function(i,entry){
 			if(i<=8){ // <— change this number to display more or less images
 				$("<img/>").attr("src", entry.content.src).appendTo(".FlickrImages ul")

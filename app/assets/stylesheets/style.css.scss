@@ -256,13 +256,6 @@ body.boxed .page_block {
 
 
 
-
-
-
-
-
-
-
 /*-----------------------------------------------------------------------------------*/
 /*	HEADER
 /*-----------------------------------------------------------------------------------*/
@@ -538,6 +531,30 @@ ul.mega_menu li ol li a:hover {
   -webkit-filter: drop-shadow( 2px 2px 3px rgba(00,00,00,0.2)  );
   filter: drop-shadow( 2px 2px 3px rgba(00,00,00,0.2)  );
 }
+
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  #home-welcome {
+    margin-top: 110px;
+  }
+
+  #home img
+  {
+    height: 54%;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  #home-welcome {
+    margin-top: 80px;
+    h3 { font-size: 16px; }
+  }
+
+  #home img
+  {
+    height: 50%;
+  }
+}
+
 
 /*-----------------------------------------------------------------------------------*/
 /*	SERVICES

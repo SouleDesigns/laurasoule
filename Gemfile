@@ -42,3 +42,5 @@ gem 'refinerycms-blog', '~> 2.1.0'
 #gem 'refinerycms-s3assets', :group => :development
 gem 'refinerycms-copywriting'
 gem 'refinerycms-projects', :path => 'vendor/extensions'
+gem 'newrelic_rpm'
+

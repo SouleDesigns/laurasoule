@@ -160,6 +160,7 @@ GEM
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
     net-ssh (2.9.1)
+    newrelic_rpm (3.9.8.273)
     nokogiri (1.6.5)
       mini_portile (~> 0.6.0)
     orm_adapter (0.5.0)
@@ -292,6 +293,7 @@ DEPENDENCIES
   fog
   haml
   jquery-rails
+  newrelic_rpm
   pg (= 0.17.1)
   rails (= 3.2.21)
   rails_12factor (= 0.0.2)

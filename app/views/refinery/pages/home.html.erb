@@ -13,157 +13,30 @@
 
   <img src="<%=image_path('laura-toon.svg')%>">
 </section><!-- //HOME -->
-
-<!--
-
-&lt;!&ndash; SERVICES &ndash;&gt;
-<section class="services_block">
-
-  &lt;!&ndash; CONTAINER &ndash;&gt;
-  <div class="container">
-
-    &lt;!&ndash; SERVICES WRAPPER &ndash;&gt;
-    <div class="services_wrapper row" data-appear-top-offset="-100" data-animated="fadeInUp">
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-ss-12 padbot30">
-        <div class="service_item center">
-          <div class="icon_block"><i class="fe icon_mobile"></i></div>
-          <p>Responsive design</p>
-          <span>Phasellus sollicitudin tincidunt aliquam. Integer vitae varius tortor. Quisque rhoncus</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-ss-12 padbot30">
-        <div class="service_item center">
-          <div class="icon_block"><i class="fe icon_star_alt"></i></div>
-          <p>Clean Design</p>
-          <span>Phasellus sollicitudin tincidunt aliquam. Integer vitae varius tortor. Quisque rhoncus</span>
-        </div>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-ss-12 padbot30">
-        <div class="service_item center">
-          <div class="icon_block"><i class="fe icon_comment_alt"></i></div>
-          <p>Support</p>
-          <span>Phasellus sollicitudin tincidunt aliquam. Integer vitae varius tortor. Quisque rhoncus</span>
-        </div>
-      </div>
-    </div>&lt;!&ndash; //SERVICES WRAPPER &ndash;&gt;
-  </div>&lt;!&ndash; //CONTAINER &ndash;&gt;
-</section>&lt;!&ndash; //SERVICES &ndash;&gt;
--->
-
-
 <!-- RECENT PROJECTS -->
 <section class="projects_block">
 
   <!-- CONTAINER -->
   <div class="container">
-    <h2 class="title center">Latest Projects</h2>
+    <h2 class="title center"><%=copywriting('latest projects', { :scope => :home })%></h2>
 
     <!-- ROW -->
     <div class="row">
+      <% @projects.each do |project| %>
       <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 col-ss-12 padbot30">
         <div class="project_item">
           <div class="hover_img">
-            <img src="<%=image_path('projects/popular/1.jpg')%>" alt="" />
+            <%= image_fu(project.photo, '500x500#') %>
           </div>
           <div class="recent_projects_descr center">
             <div class="content">
-              <a href="portfolio-post.html" >Lorem ipsum</a>
-              <span>Ut volutpat justo a neque vestibulum ultricies.</span>
+              <%= link_to project.title, refinery.projects_projects_path(:anchor => project.anchor) %>
+              <span><%=project.teaser%></span>
             </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 col-ss-12 padbot30">
-        <div class="project_item">
-          <div class="hover_img">
-            <img src="<%=image_path('projects/popular/2.jpg')%>" alt="" />
-          </div>
-          <div class="recent_projects_descr center">
-            <div class="content">
-              <a href="portfolio-post.html" >Lorem ipsum</a>
-              <span>Ut volutpat justo a neque vestibulum ultricies.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 col-ss-12 padbot30">
-        <div class="project_item">
-          <div class="hover_img">
-            <img src="<%=image_path('projects/popular/3.jpg')%>" alt="" />
-          </div>
-          <div class="recent_projects_descr center">
-            <div class="content">
-              <a href="portfolio-post.html" >Lorem ipsum</a>
-              <span>Ut volutpat justo a neque vestibulum ultricies.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 col-ss-12 padbot30">
-        <div class="project_item">
-          <div class="hover_img">
-            <img src="<%=image_path('projects/popular/4.jpg')%>" alt="" />
-          </div>
-          <div class="recent_projects_descr center">
-            <div class="content">
-              <a href="portfolio-post.html" >Lorem ipsum</a>
-              <span>Ut volutpat justo a neque vestibulum ultricies.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 col-ss-12 padbot30">
-        <div class="project_item">
-          <div class="hover_img">
-            <img src="<%=image_path('projects/popular/5.jpg')%>" alt="" />
-          </div>
-          <div class="recent_projects_descr center">
-            <div class="content">
-              <a href="portfolio-post.html" >Lorem ipsum</a>
-              <span>Ut volutpat justo a neque vestibulum ultricies.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 col-ss-12 padbot30">
-        <div class="project_item">
-          <div class="hover_img">
-            <img src="<%=image_path('projects/popular/6.jpg')%>" alt="" />
-          </div>
-          <div class="recent_projects_descr center">
-            <div class="content">
-              <a href="portfolio-post.html" >Lorem ipsum</a>
-              <span>Ut volutpat justo a neque vestibulum ultricies.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 col-ss-12 padbot30">
-        <div class="project_item">
-          <div class="hover_img">
-            <img src="<%=image_path('projects/popular/7.jpg')%>" alt="" />
-          </div>
-          <div class="recent_projects_descr center">
-            <div class="content">
-              <a href="portfolio-post.html" >Lorem ipsum</a>
-              <span>Ut volutpat justo a neque vestibulum ultricies.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-3 col-sm-4 col-xs-6 col-ss-12 padbot30">
-        <div class="project_item">
-          <div class="hover_img">
-            <img src="<%=image_path('projects/popular/8.jpg')%>" alt="" />
-          </div>
-          <div class="recent_projects_descr center">
-            <div class="content">
-              <a href="portfolio-post.html" >Lorem ipsum</a>
-              <span>Ut volutpat justo a neque vestibulum ultricies.</span>
-            </div>
-          </div>
-        </div>
-      </div>
+     <% end %>
     </div><!-- //ROW -->
   </div><!-- //CONTAINER -->
 </section><!-- //RECENT PROJECTS -->

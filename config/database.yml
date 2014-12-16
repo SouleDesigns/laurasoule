@@ -5,8 +5,8 @@ development:
   pool: 5
   username: <%= ENV['POSTGRES_USERNAME'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
-  host: localhost
   min_messages: warning
+  host: localhost
 
 test:
   adapter: postgresql
@@ -16,6 +16,7 @@ test:
   username: <%= ENV['POSTGRES_USERNAME'] %>
   password: <%= ENV['POSTGRES_PASSWORD'] %>
   min_messages: warning
+  host: localhost
 
 production:
   adapter: postgresql

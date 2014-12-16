@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20141201212245) do
+ActiveRecord::Schema.define(:version => 20141215220450) do
 
   create_table "refinery_blog_categories", :force => true do |t|
     t.string   "title"
@@ -91,6 +91,31 @@ ActiveRecord::Schema.define(:version => 20141201212245) do
   add_index "refinery_blog_posts", ["id"], :name => "index_refinery_blog_posts_on_id"
   add_index "refinery_blog_posts", ["slug"], :name => "index_refinery_blog_posts_on_slug"
 
+  create_table "refinery_copywriting_phrase_translations", :force => true do |t|
+    t.integer  "refinery_copywriting_phrase_id"
+    t.string   "locale",                         :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
+    t.text     "value"
+  end
+
+  add_index "refinery_copywriting_phrase_translations", ["locale"], :name => "index_copywriting_phrase_translations_on_locale"
+  add_index "refinery_copywriting_phrase_translations", ["refinery_copywriting_phrase_id"], :name => "index_copywriting_phrase_translations_on_copywriting_phrase_id"
+
+  create_table "refinery_copywriting_phrases", :force => true do |t|
+    t.string   "name"
+    t.text     "default"
+    t.text     "value"
+    t.string   "scope"
+    t.integer  "page_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+    t.string   "phrase_type"
+    t.date     "last_access_at"
+  end
+
+  add_index "refinery_copywriting_phrases", ["name", "scope"], :name => "index_copywriting_phrases_on_name_and_scope"
+
   create_table "refinery_images", :force => true do |t|
     t.string   "image_mime_type"
     t.string   "image_name"
@@ -163,6 +188,17 @@ ActiveRecord::Schema.define(:version => 20141201212245) do
   add_index "refinery_pages", ["lft"], :name => "index_refinery_pages_on_lft"
   add_index "refinery_pages", ["parent_id"], :name => "index_refinery_pages_on_parent_id"
   add_index "refinery_pages", ["rgt"], :name => "index_refinery_pages_on_rgt"
+
+  create_table "refinery_projects", :force => true do |t|
+    t.string   "title"
+    t.datetime "date"
+    t.integer  "photo_id"
+    t.string   "teaser"
+    t.text     "content"
+    t.integer  "position"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "refinery_resources", :force => true do |t|
     t.string   "file_mime_type"

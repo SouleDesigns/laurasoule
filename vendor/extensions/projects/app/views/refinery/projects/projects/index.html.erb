@@ -1,0 +1,31 @@
+<%= render('refinery/pages/breadcrumbs') %>
+
+<!-- PORTFOLIO BLOCK -->
+<section id="projects">
+
+  <!-- CONTAINER -->
+  <div class="container">
+
+    <!-- ROW -->
+    <div class="row">
+      <% @projects.order('date desc').each do |project| %>
+      <div class="portfolio_block columns1" data-animated="fadeIn">
+        <div class="element category1 project">
+          <div class="col-lg-6 col-sm-6 padbot20">
+            <div class="hover_img">
+              <%= image_fu project.photo, '700x440#' %>
+              <a class="zoom" href="<%=project.photo.url%>" rel="prettyPhoto[portfolio1]"></a>
+            </div>
+          </div>
+          <div class="col-lg-6 col-sm-6 padbot20">
+            <a class="anchor" name="<%=project.anchor%>"></a>
+            <h4><%= project.title%> <%# link_to project.title, refinery.projects_project_path(project) %></h4>
+            <p><%=project.content.html_safe%></p>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      <% end %>
+    </div><!-- //ROW -->
+  </div><!-- //CONTAINER -->
+</section><!-- //PORTFOLIO BLOCK -->

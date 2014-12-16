@@ -1260,13 +1260,6 @@ footer input[type="submit"]:hover {color:#9a9a9a; background-color:#3d3d3d;}
 
 
 
-
-
-
-
-
-
-
 /*-----------------------------------------------------------------------------------*/
 /*	ABOUT
 /*-----------------------------------------------------------------------------------*/
@@ -1277,8 +1270,9 @@ footer input[type="submit"]:hover {color:#9a9a9a; background-color:#3d3d3d;}
 	background-image:image_url('home_bg.jpg');
 	background-repeat:no-repeat;
 	background-size:100% auto;
+    background-position: center center;
 	-webkit-background-size:100% auto;
-  font-size: 13px;
+    font-size: 13px;
 }
 .breadcrumbs_block .overlay, .breadcrumbs_block .overlay_black {display:none;}
 .breadcrumbs_content {
@@ -2037,6 +2031,8 @@ footer .tweet_module .tweet_time a {color:#7f3b49;}
 	width:100%;
 	padding:10px 0 0;
 }
+
+a.anchor{display: block; position: relative; top: -120px; visibility: hidden;}
 
 
 /* __________ Portfolio Item __________ */

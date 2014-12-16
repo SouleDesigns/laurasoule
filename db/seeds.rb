@@ -11,3 +11,12 @@ Refinery::Pages::Engine.load_seed
 
 # Added by Refinery CMS Blog engine
 Refinery::Blog::Engine.load_seed
+
+# Added by Refinery CMS Projects extension
+Refinery::Projects::Engine.load_seed
+
+# Added by Refinery CMS GlobalContentBlocks extension
+Refinery::GlobalContentBlocks::Engine.load_seed
+
+# Added by RefineryCMS Copywriting engine
+Refinery::Copywriting::Engine.load_seed

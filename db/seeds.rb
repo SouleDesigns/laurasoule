@@ -15,8 +15,8 @@ Refinery::Blog::Engine.load_seed
 # Added by Refinery CMS Projects extension
 Refinery::Projects::Engine.load_seed
 
-# Added by Refinery CMS GlobalContentBlocks extension
-Refinery::GlobalContentBlocks::Engine.load_seed
-
 # Added by RefineryCMS Copywriting engine
 Refinery::Copywriting::Engine.load_seed
+
+# Added by Refinery CMS Inquiries engine
+Refinery::Inquiries::Engine.load_seed

@@ -1,0 +1,20 @@
+<%= render('refinery/pages/breadcrumbs') %>
+
+<!-- PAGE CONTENT -->
+<section class="our_vision">
+
+  <!-- CONTAINER -->
+  <div class="container">
+    <div class="row">
+      <!-- BODY -->
+      <div class="col-lg-9 col-sm-9 padbot20">
+        <%=raw @page.content_for(:body) %>
+      </div><!-- //BODY-->
+
+      <!-- SIDE BODY -->
+      <div id="sidebar" class="col-lg-3 col-sm-3">
+        <%=raw @page.content_for(:side_body) %>
+      </div><!-- //SIDE BODY -->
+    </div>
+  </div><!-- //CONTAINER -->
+</section><!-- //PAGE CONTENT -->

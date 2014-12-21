@@ -1,0 +1,77 @@
+<%= render( :partial => 'refinery/pages/breadcrumbs') %>
+
+<!-- PAGE CONTENT -->
+<section class="our_vision">
+
+  <!-- CONTAINER -->
+  <div class="container">
+    <div class="row">
+
+      <!-- BODY -->
+      <div class="col-lg-8 col-sm-8 padbot20">
+
+        <%= raw @page.content_for(Refinery::Pages.default_parts.first.to_sym) if Refinery::Pages.default_parts.any? %>
+
+        <div class='inquiries'>
+
+          <%= form_for [refinery, :inquiries, @inquiry], :html => { id: 'contactform'} do |f| %>
+              <%= render :partial => "/refinery/admin/error_messages",
+                         :locals => {
+                                 :object => @inquiry,
+                                 :include_object_name => true
+                         } %>
+
+            <div class="row">
+              <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <%= f.required_label :name, :class => 'placeholder-fallback' %>
+                <%= f.text_field :name, :class => 'text', :required => 'required',
+                                 :placeholder => t('name', :scope => 'activerecord.attributes.refinery/inquiries/inquiry'),
+                                 :class => 'text form-control',
+                                 :title => 'Please enter your name',
+                                 'data-rule-required' => 'true',
+                                 'data-rule-maxlength' => '200'  %>
+              </div>
+              <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <%= f.required_label :email, :class => 'placeholder-fallback' %>
+                <%= f.email_field :email, :required => 'required',
+                                  :placeholder => t('email', :scope => 'activerecord.attributes.refinery/inquiries/inquiry'),
+                                  :class => 'text form-control',
+                                  :title => 'Please enter a valid email address',
+                                  'data-rule-required' => 'true',
+                                  'data-rule-email' => 'true',
+                                  'data-rule-maxlength' => '200' %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <%= f.required_label :message, :class => 'placeholder-fallback' %>
+                <%= f.text_area :message, :rows => 5, :cols => 50, :required => 'required',
+                                :placeholder => t('message', :scope => 'activerecord.attributes.refinery/inquiries/inquiry'),
+                                :class => 'text form-control',
+                                :title => 'Please enter a message',
+                                'data-rule-required' => 'true' %>
+
+              </div>
+            </div>
+            <button type="submit" class="btn btn-sm btn-primary">Send</button>
+
+          <% end %>
+        </div>
+
+      </div><!-- //BODY-->
+
+      <!-- SIDE BODY -->
+      <div id="sidebar" class="col-lg-4 col-sm-4">
+        <%=raw @page.content_for(:side_body) %>
+      </div><!-- //SIDE BODY -->
+    </div>
+  </div><!-- //CONTAINER -->
+</section><!-- //PAGE CONTENT -->
+
+<% content_for :javascripts do %>
+    <%= javascript_include_tag('contact') %>
+    <%= javascript_include_tag('jquery.validate.min') %>
+    <%= javascript_include_tag('additional-methods.min') %>
+<% end  %>
+
+

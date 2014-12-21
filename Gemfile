@@ -27,6 +27,7 @@ end
 gem 'jquery-rails'
 gem 'haml'
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'recaptcha', :require => 'recaptcha/rails'
 
 # Refinery CMS
 gem 'refinerycms', '~> 2.1.0'
@@ -36,11 +37,10 @@ gem 'refinerycms-acts-as-indexed', '~> 1.0.0'
 gem 'refinerycms-blog', '~> 2.1.0'
 #gem 'refinerycms-wordpress-import', path: '/Volumes/Free Range HD/SouleDesigns/GithubProjects/refinerycms-wordpress-import'
 #gem 'refinerycms-wordpress-import', :git => 'git://github.com/SouleDesigns/refinerycms-wordpress-import.git'
-#  gem 'refinerycms-inquiries', '~> 2.1.0'
-#  gem 'refinerycms-search', '~> 2.1.0'
-#  gem 'refinerycms-page-images', '~> 2.1.0'
 #gem 'refinerycms-s3assets', :group => :development
+#gem 'refinerycms-search', '~> 2.1.0'
+#gem 'refinerycms-page-images', '~> 2.1.0'
 gem 'refinerycms-copywriting'
 gem 'refinerycms-projects', :path => 'vendor/extensions'
 gem 'newrelic_rpm'
-
+#gem 'refinerycms-inquiries', '~> 2.1.0'

@@ -5,11 +5,24 @@
 
         <% page = Nokogiri::HTML(post.body)
            img = page.css('img').first
+           fallback = true
            unless img.nil?
+             if src_match = img.attr('src').match(%r{/system/images/(.+?)/})
+               fallback = false
+               sha = src_match[1]
+               job = Dragonfly::Job.deserialize sha, Dragonfly[:refinery_images]
         %>
-              <%= raw img%>
+                <%= link_to (image_fu Refinery::Image.where(:image_uid => job.uid).first, '600x600#c'), refinery.blog_post_path(post), :title => post.title %>
         <%
-           end
+               end
+            end
+
+           # Fallback to default if couldn't get an image above
+           if fallback
+        %>
+               <%= link_to (image_tag('blog-post.jpg')), refinery.blog_post_path(post), :title => post.title %>
+        <%
+            end
         %>
       </div>
 

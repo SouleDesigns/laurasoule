@@ -200,6 +200,7 @@ GEM
     rake (10.4.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    recaptcha (0.3.6)
     refinerycms (2.1.5)
       bundler (>= 1.2.2, < 2.0)
       refinerycms-authentication (= 2.1.5)
@@ -297,6 +298,7 @@ DEPENDENCIES
   pg (= 0.17.1)
   rails (= 3.2.21)
   rails_12factor (= 0.0.2)
+  recaptcha
   refinerycms (~> 2.1.0)
   refinerycms-acts-as-indexed (~> 1.0.0)
   refinerycms-blog (~> 2.1.0)

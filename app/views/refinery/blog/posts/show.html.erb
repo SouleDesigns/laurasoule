@@ -34,7 +34,11 @@
     <script>stLight.options({publisher:'<%= Refinery::Blog.share_this_key %>'});</script>
 <% end if Refinery::Blog::Post::ShareThis.enabled? %>
 
-
-
+<% content_for :javascripts do %>
+    <%= javascript_include_tag('blog-post') %>
+    <script src="//www.google.com/recaptcha/api/challenge?k=<%=@recaptcha_public_key%>"></script>
+    <%= javascript_include_tag('jquery.validate.min') %>
+    <%= javascript_include_tag('additional-methods.min') %>
+<% end  %>
 
 

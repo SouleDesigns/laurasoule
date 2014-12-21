@@ -1,37 +1,84 @@
+<br />
+<br />
 <aside id="comments">
+
   <% if (comments = @post.comments.approved).any? %>
-    <h2><%= t('title', :scope => 'refinery.blog.posts.show.comments') %></h2>  
-    <%= render :partial => "comment", :collection => comments %>
+  <div class="comments topspace15 bottomspace15">
+    <h4>
+      <i class="glyphicon glyphicon-comment"></i>
+      <%=pluralize(comments.count, 'Comment')%>
+    </h4>
+    <ul class="comment-list">
+        <%= render :partial => "comment", :collection => comments %>
+    </ul>
+  </div>
   <% end %>
 
   <% if Refinery::Blog::Post.comments_allowed? %>
+  <div class="comments">
+    <h4>Leave a Comment</h4>
 
-    <% flash.each do |key, value| %>
-      <div id='flash' class="flash flash_<%= key %>">
-        <%= value %>
-      </div>
-    <% end %>
+    <%= form_for @comment, as: :comment, url: refinery.blog_comments_path(@post), html: { id: 'commentform' } do |f| %>
+      <%= render "/refinery/admin/error_messages", :object => f.object, :include_object_name => true %>
+        <div class="edit-item">
+          <div class="edit-item-primary">
+            <div class="edit-item-content">
 
-    <h2><%= t('add', :scope => 'refinery.blog.posts.show.comments') %></h2>
-    <%= form_for [refinery, :blog, @comment] do |f| %>
-      <%= render "/refinery/admin/error_messages",
-                 :object => f.object,
-                 :include_object_name => true %>
-      <div class='field'>
-        <%= f.label :name %>
-        <%= f.text_field :name %>
+              <div class="row">
+                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <label>Name <span>*</span></label>
+                  <%= text_field_tag :comment_name, @comment.name, name: 'comment[name]', placeholder: 'Name (required)', title: 'Name is a required field.', class: 'form-control', :data => { rule_maxlength: '100', rule_required: 'true' } %>
+                </div>
+                <div class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                  <label>Email <span>*</span></label>
+                  <%= email_field_tag :comment_email, @comment.email, name: 'comment[email]', placeholder: 'Email (required)', title: 'Email is a required field.', class: 'form-control', :data => { rule_email: 'true', rule_required: 'true', msg_email: 'Please enter a valid email address.' } %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <label>Comments <span>*</span></label>
+                  <%= text_area_tag :comment_message, @comment.message, name: 'comment[message]', placeholder: 'Comments (required)', title: 'It wouldn\'t be much of a comment without this!', class: 'form-control',rows: 3, cols: 20, :data => { rule_required: 'true' } %>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <label class="recaptcha_only_if_image">Enter the text in the image <span>*</span></label>
+                    <label class="recaptcha_only_if_audio">Enter the numbers you hear <span>*</span></label>
+                    <div class="input-group">
+                      <input type="text"
+                             id="recaptcha_response_field"
+                             name="recaptcha_response_field"
+                             class="form-control"
+                             data-rule-required="true"
+                             title="Are you sure you're not a bot?"
+                             placeholder="Prove you're not a bot (required)" />
+                      <div class="input-group-btn">
+                        <a class="btn btn-default" href="javascript:Recaptcha.reload()"><i title="Get another CAPTCHA" class="glyphicon glyphicon-refresh"></i></a>
+                        <a class="btn btn-default recaptcha_only_if_image" href="javascript:Recaptcha.switch_type('audio')"><i title="Get an audio CAPTCHA" class="glyphicon glyphicon-headphones"></i></a>
+                        <a class="btn btn-default recaptcha_only_if_audio" href="javascript:Recaptcha.switch_type('image')"><i title="Get an image CAPTCHA" class="glyphicon glyphicon-picture"></i></a>
+                        <a class="btn btn-default" href="javascript:Recaptcha.showhelp()"><i class="glyphicon glyphicon-question-sign"></i></a>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div id="recaptcha_image"></div>
+                    <div class="recaptcha_only_if_incorrect_sol">Incorrect please try again</div>
+                  </div>
+              </div>
+              <noscript>
+                <iframe src="//www.google.com/recaptcha/api/noscript?k=<%=@recaptcha_public_key%>" height="300" width="500" frameborder="0"></iframe><br>
+                <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+                <input type="hidden" name="recaptcha_response_field" value="manual_challenge">
+              </noscript>
+              <button type="submit" class="btn btn-sm btn-primary">Post Comment</button>
+            </div>
+          </div>
+          <div class="edit-item-secondary group">
+          </div>
+        </div>
+        <% end %>
       </div>
-      <div class='field'>
-        <%= f.label :email %>
-        <%= f.email_field :email %>
-      </div>
-      <div class='field message_field'>
-        <%= f.label :message %>
-        <%= f.text_area :message, :rows => 6 %>
-      </div>
-      <div class='field form-actions'>
-        <%= f.submit t('submit', :scope => 'refinery.blog.posts.show') %>
-      </div>
-    <% end %>
   <% end %>
 </aside>
+
+

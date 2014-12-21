@@ -3,3 +3,9 @@
 
 en:
   hello: "Hello world"
+  recaptcha:
+      errors:
+        incorrect-captcha-sol: Captcha code is incorrect
+        verification_failed: Captcha code is incorrect
+        recaptcha_unavailable: Captcha verification failed. Please try again.
+        recaptcha-not-reachable: Captcha verification failed. Please try again.

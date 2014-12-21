@@ -1,10 +1,10 @@
-<article class='blog_comment_message' id='<%= "comment-#{comment.to_param}" %>'>
-  <%= image_tag avatar_url(comment.email), :alt => comment.name, :class => 'avatar' %>
-  <%= simple_format auto_link(comment.message.to_s) %>
-  <footer class='blog_comment_author'>
-    <p>
-      <%= t('by', :scope => 'refinery.blog.posts.comments', :who => comment.name) %>,
-      <%= t('time_ago', :scope => 'refinery.blog.posts.comments', :time => time_ago_in_words(comment.created_at)) %>
-    </p>
-  </footer>
-</article>
+<li class="comment media">
+    <div class="gravatar pull-left">
+      <%= image_tag avatar_url(comment.email), :alt => comment.name, :class => 'media-object' %>
+    </div>
+    <div class="media-body well well-sm">
+      <strong class="media-heading"><%=comment.name%></strong>
+      <span class="comment-meta-date"><%=comment.created_at.to_date.to_formatted_s(:long)%></span>
+        <p><br/><%= comment.message.to_s %></p>
+    </div>
+</li>

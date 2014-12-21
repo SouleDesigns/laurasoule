@@ -12,6 +12,7 @@
  *= require refinery/theme
  *= require_self
  *= require bootstrap.min
+ *= require bootstrap-theme.min
  *= require fontElegant
  *= require prettyPhoto
  *= require flexslider

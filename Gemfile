@@ -35,9 +35,6 @@ gem 'refinerycms', '~> 2.1.0'
 # Optionally, specify additional Refinery CMS Extensions here:
 gem 'refinerycms-acts-as-indexed', '~> 1.0.0'
 gem 'refinerycms-blog', '~> 2.1.0'
-#gem 'refinerycms-wordpress-import', path: '/Volumes/Free Range HD/SouleDesigns/GithubProjects/refinerycms-wordpress-import'
-#gem 'refinerycms-wordpress-import', :git => 'git://github.com/SouleDesigns/refinerycms-wordpress-import.git'
-#gem 'refinerycms-s3assets', :group => :development
 #gem 'refinerycms-search', '~> 2.1.0'
 #gem 'refinerycms-page-images', '~> 2.1.0'
 gem 'refinerycms-inquiries', '~> 2.1.0'

@@ -12,8 +12,22 @@
   %>
   <%=@post.body.html_safe %>
 
+  <hr />
   <% if Refinery::Blog::Post::ShareThis.enabled? %>
-    <span class="st_sharethis" displayText="ShareThis"></span>
+
+      <div>
+        <div class="pull-left share-this"><h4><span class="glyphicon glyphicon-share"></span>Share</h4>&nbsp;</div>
+        <div>
+          <span class='st_twitter_large' displayText='Tweet'></span>
+          <span class='st_googleplus_large' displayText='Google +'></span>
+          <span class='st_facebook_large' displayText='Facebook'></span>
+          <span class='st_pinterest_large' displayText='Pinterest'></span>
+          <span class='st_email_large' displayText='Email'></span>
+          <span class='st_sharethis_large' displayText='ShareThis'></span>
+        </div>
+        <div class="clear"></div>
+      </div>
+ <hr />
   <% end %>
 </div>
 <%= render '/refinery/draft_page_message' unless @post.nil? or @post.live? -%>

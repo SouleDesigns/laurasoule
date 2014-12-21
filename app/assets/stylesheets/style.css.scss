@@ -1906,6 +1906,16 @@ figure {
   display: block;
 }
 
+.share-this
+{
+  margin: 5px 10px 0px 0px;
+  height: 25px;
+  h4 {
+    color: #999;
+    .glyphicon { color: #999; }
+  }
+}
+
 /* Recaptcha Custom Styles */
 #recaptcha_challenge_image
 {

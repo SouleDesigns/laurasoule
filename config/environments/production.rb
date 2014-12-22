@@ -50,19 +50,20 @@ Laurasoule::Application.configure do
 
   # Disable delivery errors, bad email addresses will be ignored
   if config.respond_to?(:action_mailer)
-    # config.action_mailer.raise_delivery_errors = false
-  end
+    #config.action_mailer.raise_delivery_errors = true
 
-  # Setup action mailer
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      address:              'smtp.gmail.com',
-      port:                 587,
-      domain:               'laurasoule.com',
-      user_name:            ENV['EMAIL_USERNAME'],
-      password:             ENV['EMAIL_PASSWORD'],
-      authentication:       'plain',
-      enable_starttls_auto: true  }
+    # Setup action mailer
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.default_url_options = { host: 'laura-soule-dev.herokuapp.com' }
+    config.action_mailer.smtp_settings = {
+        address:              'smtp.gmail.com',
+        port:                 587,
+        domain:               'laurasoule.com',
+        user_name:            ENV['EMAIL_USERNAME'],
+        password:             ENV['EMAIL_PASSWORD'],
+        authentication:       'plain',
+        enable_starttls_auto: true  }
+  end
 
   # Enable threaded mode
   # config.threadsafe!

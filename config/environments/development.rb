@@ -15,19 +15,21 @@ Laurasoule::Application.configure do
 
   # Don't care if the mailer can't send
   if config.respond_to?(:action_mailer)
-    config.action_mailer.raise_delivery_errors = false
-  end
+    config.action_mailer.raise_delivery_errors = true
+    config.action_mailer.perform_deliveries = true
 
-  # Setup action mailer
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      address:              'smtp.gmail.com',
-      port:                 587,
-      domain:               'laurasoule.com',
-      user_name:            ENV['EMAIL_USERNAME'],
-      password:             ENV['EMAIL_PASSWORD'],
-      authentication:       'plain',
-      enable_starttls_auto: true  }
+    # Setup action mailer
+    config.action_mailer.delivery_method = :smtp
+    config.action_mailer.default_url_options = { host: 'localhost:3000' }
+    config.action_mailer.smtp_settings = {
+        address:              'smtp.gmail.com',
+        port:                 587,
+        domain:               'laurasoule.com',
+        user_name:            ENV['EMAIL_USERNAME'],
+        password:             ENV['EMAIL_PASSWORD'],
+        authentication:       'plain',
+        enable_starttls_auto: true  }
+  end
 
   # Print deprecation notices to the Rails logger
   config.active_support.deprecation = :log

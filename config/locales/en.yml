@@ -9,3 +9,7 @@ en:
         verification_failed: Captcha code is incorrect
         recaptcha_unavailable: Captcha verification failed. Please try again.
         recaptcha-not-reachable: Captcha verification failed. Please try again.
+  refinery:
+      inquiries:
+        config:
+          from_name: "\"%{site_name}\""

@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
   def prepare_recent_blog_posts
     @recent_blog_posts = Refinery::Blog::Post.live
       .with_globalize
-      .page(params[:page])
       .order('published_at desc')
       .take(2)
   end

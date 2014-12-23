@@ -8,7 +8,7 @@
             <%
             local_dt = comment.created_at.in_time_zone('America/New_York')
            %>
-           <%=raw(local_dt.to_formatted_s(:long))%>
+           <%=raw(local_dt.to_date.to_formatted_s(:long))%>
            <%=raw(local_dt.strftime('%-I:%M %p'))%>
         </span>
         <p><br/><%= comment.message.to_s %></p>

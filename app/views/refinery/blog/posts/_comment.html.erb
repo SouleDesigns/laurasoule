@@ -4,7 +4,13 @@
     </div>
     <div class="media-body well well-sm">
       <strong class="media-heading"><%=comment.name%></strong>
-      <span class="comment-meta-date"><%=comment.created_at.to_date.to_formatted_s(:long)%></span>
+      <span class="comment-meta-date">
+            <%
+            local_dt = comment.created_at.in_time_zone('America/New_York')
+           %>
+           <%=raw(local_dt.to_formatted_s(:long))%>
+           <%=raw(local_dt.strftime('%-I:%M %p'))%>
+        </span>
         <p><br/><%= comment.message.to_s %></p>
     </div>
 </li>

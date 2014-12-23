@@ -9,7 +9,7 @@
       <%=pluralize(comments.count, 'Comment')%>
     </h4>
     <ul class="comment-list">
-        <%= render :partial => "comment", :collection => comments %>
+        <%= render :partial => "comment", :collection => comments.order('created_at asc') %>
     </ul>
   </div>
   <% end %>
